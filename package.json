@@ -6,8 +6,10 @@
   "author": "janus_wel <janus.wel.3@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "webpack",
-    "build:watch": "webpack --watch",
+    "build": "npm run build:domain && npm run build:ui",
+    "build:domain": "./build.sh",
+    "build:ui": "webpack",
+    "build:ui:watch": "webpack --watch",
     "lint": "standard",
     "lint:fix": "standard --fix"
   },
