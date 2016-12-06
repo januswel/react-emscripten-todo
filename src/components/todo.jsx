@@ -11,6 +11,7 @@ export default (props) => {
           />
         {props.todo.task}
       </label>
+      <button onClick={() => { props.actions.remove(props.id) }}>remove</button>
     </div>
   )
 }

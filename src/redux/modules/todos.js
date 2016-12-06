@@ -1,5 +1,6 @@
 const TOGGLE = 'toggle'
 const ADD = 'add'
+const REMOVE = 'remove'
 
 const initial = [
   new Module.Todo('define domain rules'),
@@ -22,6 +23,13 @@ export default (state = initial, action) => {
       result.push(newTodo)
       return result
     }
+    case REMOVE: {
+      const result = Object.assign([], state)
+      result.splice(action.id, 1)
+      const todo = state[action.id]
+      todo.delete()
+      return result
+    }
     default:
       return state
   }
@@ -35,4 +43,9 @@ export const toggle = (id) => ({
 export const add = (task) => ({
   type: ADD,
   task
+})
+
+export const remove = (id) => ({
+  type: REMOVE,
+  id
 })
